@@ -5,24 +5,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TaskBBI.EF;
 using TaskBBI.Models;
 
 namespace TaskBBI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private dbContext _db;
+        public HomeController(dbContext context)
         {
-            _logger = logger;
+            _db = context;
         }
-
         public IActionResult Index()
         {
             return View();
         }
-
+        public IActionResult TestDB()
+        {
+            var appPackage = _db.ApplicationPackage.Count();
+            ViewBag.appPackage = appPackage;
+            DbInitializer.Execute(_db);
+            return View(_db);
+        }
         public IActionResult Privacy()
         {
             return View();

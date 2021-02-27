@@ -35,10 +35,8 @@ namespace TaskBBI.ViewModels
         [Display(Name = "Mjesto stanovanja")]
         [Required(ErrorMessage = "Obavezan odabir")]
         public int PlaceOfResidenceId { get; set; }
-        public List<SelectListItem> PlacesOfResidence { get; set; }
-        //[Display(Name = "Vrsta paketa")]
-        //[Required(ErrorMessage = "Obavezan odabir")]
+        public List<SelectListItem> PlacesOfResidence { get; set; }   
         public int ApplicationPackageId { get; set; }
-        //public List<SelectListItem> ApplicationPackages { get; set; }
+       
     }
 }

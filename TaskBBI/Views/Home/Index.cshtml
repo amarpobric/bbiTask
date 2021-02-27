@@ -1,1 +1,7 @@
-﻿
+﻿@using TaskBBI.EF
+@model dbContext
+
+@if (ViewBag.appPackage < 1)
+{
+    @Html.ActionLink("Insert podataka za mjesta i pakete", "TestDB", "Home")
+}

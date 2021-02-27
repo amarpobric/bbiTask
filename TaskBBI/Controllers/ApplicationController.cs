@@ -20,9 +20,8 @@ namespace TaskBBI.Controllers
         {
             _db = context;
         }
-       
         public IActionResult Index()
-        {
+        {          
             ApplicationIndexViewModel model = new ApplicationIndexViewModel();
             model.ApplicationPackages = _db.ApplicationPackage.Select(x => new SelectListItem
             {
@@ -35,12 +34,7 @@ namespace TaskBBI.Controllers
         public IActionResult Create(ApplicationIndexViewModel residence)
         {
             ApplicationCreateViewModel model = new ApplicationCreateViewModel();
-            model.DateOfBirth = DateTime.Now;
-            //model.ApplicationPackages = _db.ApplicationPackage.Select(x => new SelectListItem
-            //{
-            //    Text = x.Title + " " + x.Value.ToString() + " KM",
-            //    Value = x.Id.ToString()
-            //}).ToList();
+            model.DateOfBirth = DateTime.Now;          
             model.ApplicationPackageId = residence.ApplicationPackageId;
             model.PlacesOfResidence = _db.PlaceOfResidence.Select(x => new SelectListItem
             {

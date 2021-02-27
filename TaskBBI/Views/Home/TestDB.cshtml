@@ -1,0 +1,17 @@
+﻿@using TaskBBI.EF
+@model dbContext
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Test DB - row count</h2>
+
+Mjesta stanovanja: @Model.PlaceOfResidence.Count()
+<br />
+Paketi: @Model.ApplicationPackage.Count()
+<br />
+
+
+@Html.ActionLink("Apliciranje", "Index", "Application")
