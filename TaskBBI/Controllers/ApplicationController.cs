@@ -45,7 +45,7 @@ namespace TaskBBI.Controllers
             return View(model);
         }
         public IActionResult CreateReadOnly(ApplicationCreateViewModel model)
-        {
+        {          
             var appPackage = _db.ApplicationPackage.Where(x => x.Id == model.ApplicationPackageId).FirstOrDefault();
             var appPackageTitle = appPackage.Title + " " + appPackage.Value + " KM";
             var placeOfResTitle = _db.PlaceOfResidence.Where(x => x.Id == model.PlaceOfResidenceId).FirstOrDefault().Title;

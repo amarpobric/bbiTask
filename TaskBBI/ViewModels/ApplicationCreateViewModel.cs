@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskBBI.ViewModels
 {
-    public class ApplicationCreateViewModel
+    public class ApplicationCreateViewModel 
     {
         [Display(Name = "Matični broj")]
         [Required(ErrorMessage = "Obavezan unos")]
@@ -16,13 +16,13 @@ namespace TaskBBI.ViewModels
         public string JMBG { get; set; }
         [Display(Name = "Ime i prezime")]
         [Required(ErrorMessage = "Obavezan unos")]
-        [StringLength(100, ErrorMessage = "Određen unos od 5 do 100 karaktera", MinimumLength = 5)]
+        [StringLength(100, ErrorMessage = "Određen unos od 5 do 100 karaktera", MinimumLength = 5)]       
+        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "Unos ne može biti broj niti znak")]      
         public string FullName { get; set; }
         public string Gender { get; set; }
         [Display(Name ="Datum rođenja")]
         [Required(ErrorMessage = "Obavezan odabir datuma")]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]     
         public DateTime DateOfBirth { get; set; }
         [Display(Name = "Broj telefona")]
         [Required(ErrorMessage = "Obavezan unos")]
@@ -36,7 +36,7 @@ namespace TaskBBI.ViewModels
         [Required(ErrorMessage = "Obavezan odabir")]
         public int PlaceOfResidenceId { get; set; }
         public List<SelectListItem> PlacesOfResidence { get; set; }   
-        public int ApplicationPackageId { get; set; }
-       
+        public int ApplicationPackageId { get; set; }      
     }
+   
 }

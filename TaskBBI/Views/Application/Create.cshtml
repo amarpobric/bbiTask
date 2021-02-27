@@ -16,7 +16,7 @@
                     <br />
                     @using (Html.BeginForm("CreateReadOnly", "Application", FormMethod.Get, new { @class = "form-horizontal form-label-left",@autocomplete="off" }))
                     {
-                        @Html.AntiForgeryToken()
+                       
                         @Html.ValidationSummary(true)
                         <div class="col-md-6 col-sm-6">
                             
@@ -54,7 +54,7 @@
                                 @Html.LabelFor(model => model.DateOfBirth, new { @class = "control-label col-md-4 col-sm-3" })
 
                                 <div class="col-md-8 col-sm-9">                                    
-                                    <input  class="form-control" name="DateOfBirth" type="date" required data-date-format="dd.mm.yyyy" onkeydown="return false">                               
+                                    <input  class="form-control" name="DateOfBirth" type="date" required  onkeydown="return false" min="1940-01-01" max="2003-01-01" >                                   
                                     @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @style = "color:red" })
                                 </div>
                             </div>
