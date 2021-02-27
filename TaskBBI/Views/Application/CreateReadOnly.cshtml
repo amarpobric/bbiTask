@@ -1,0 +1,131 @@
+﻿@model ApplicationCreateReadOnlyViewModel
+
+
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-category"></i>Detalji aplikacije<span></span></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @using (Html.BeginForm("CreateReadOnly", "Application", FormMethod.Post, new { @class = "form-horizontal form-label-left", @autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="table-responsive">
+                            <table class="table table-striped  jambo_table bulk_action">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.JMBG)
+                                        </td>
+                                        <td>
+                                            @Model.JMBG
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.FullName)
+                                        </td>
+                                        <td>
+                                            @Model.FullName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.Gender)
+                                        </td>
+                                        <td>
+                                            @Model.Gender
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.DateOfBirth)
+                                        </td>
+                                        <td>
+                                            @Model.DateOfBirth.ToShortDateString()
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.PlaceOfResidence)
+                                        </td>
+                                        <td>
+                                            @Model.PlaceOfResidence
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.ApplicationPackage)
+                                        </td>
+                                        <td>
+                                            @Model.ApplicationPackage
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                                        </td>
+                                        <td>
+                                            @Model.PhoneNumber
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </td>
+                                        <td>
+                                            @Model.Email
+                                        </td>
+                                    </tr>
+                                    @if (Model.DiscountedPrice != 0)
+                                    {
+                                        <tr>
+                                             <td>
+                                                 @Html.DisplayNameFor(model => model.DiscountPercentage)
+                                             </td>
+                                             <td>
+                                                 @Model.DiscountPercentage %
+                                             </td>
+                                         </tr>                                
+                                         <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.DiscountedPrice)
+                                            </td>
+                                            <td>
+                                                @Model.DiscountedPrice KM
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            @Html.HiddenFor(model=>model.JMBG)
+                            @Html.HiddenFor(model=>model.FullName)
+                            @Html.HiddenFor(model=>model.Gender)
+                            @Html.HiddenFor(model=>model.DateOfBirth)
+                            @Html.HiddenFor(model=>model.Email)
+                            @Html.HiddenFor(model=>model.PhoneNumber)
+                            @Html.HiddenFor(model=>model.ApplicationPackageId)
+                            @Html.HiddenFor(model=>model.PlaceOfResidenceId)
+                            @Html.HiddenFor(model=>model.DiscountedPrice)
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="btn-group  pull-right">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Pošalji u banku </button>                               
+                                        <a href="@Url.Action("Create","Application")" class="btn btn-primary pull-right" style="background-color:#C9302C;border-color:#C9302C"><i class="fa fa-close" style="color:#fff;"></i> Odustani </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                    }
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>

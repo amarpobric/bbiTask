@@ -1,0 +1,104 @@
+﻿@model ApplicationCreateReadOnlyViewModel
+
+
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-category"></i>Detalji aplikacije<span></span></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                   
+                      
+                        <div class="table-responsive">
+                            <table class="table table-striped  jambo_table bulk_action">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.JMBG)
+                                        </td>
+                                        <td>
+                                            @Model.JMBG
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.FullName)
+                                        </td>
+                                        <td>
+                                            @Model.FullName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.Gender)
+                                        </td>
+                                        <td>
+                                            @Model.Gender
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.DateOfBirth)
+                                        </td>
+                                        <td>
+                                            @Model.DateOfBirth.ToShortDateString()
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.PlaceOfResidence)
+                                        </td>
+                                        <td>
+                                            @Model.PlaceOfResidence
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.ApplicationPackage)
+                                        </td>
+                                        <td>
+                                            @Model.ApplicationPackage
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                                        </td>
+                                        <td>
+                                            @Model.PhoneNumber
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </td>
+                                        <td>
+                                            @Model.Email
+                                        </td>
+                                    </tr>
+                                     @if (Model.DiscountedPrice != 0)
+                                     {
+                                                        
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.DiscountedPrice)
+                                            </td>
+                                            <td>
+                                                @Model.DiscountedPrice KM
+                                            </td>
+                                        </tr>
+                                     }
+                            </table>
+                         
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

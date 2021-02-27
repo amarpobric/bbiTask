@@ -1,0 +1,108 @@
+﻿@model ApplicationCreateViewModel
+@{
+
+}
+
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-add"></i> Nova aplikacija </h2>
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="x_content">
+                    <br />
+                    @using (Html.BeginForm("CreateReadOnly", "Application", FormMethod.Get, new { @class = "form-horizontal form-label-left",@autocomplete="off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="col-md-6 col-sm-6">
+                            
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.JMBG, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                <div class="col-md-8 col-sm-9">
+                                    @Html.TextBoxFor(model => model.JMBG, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.JMBG, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FullName, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                <div class="col-md-8 col-sm-9">
+                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FullName, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Gender, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                <div class="col-md-8 col-sm-9">                                  
+                                    <select name="Gender" id="Gender" class = "form-control" >
+                                        <option value="Muškarac">Muškarac</option>
+                                        <option value="Žena">Žena</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.Gender, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DateOfBirth, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                <div class="col-md-8 col-sm-9">                                    
+                                    <input  class="form-control" name="DateOfBirth" type="date" required data-date-format="dd.mm.yyyy" onkeydown="return false">                               
+                                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PlaceOfResidenceId, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                <div class="col-md-8 col-sm-9">
+                                    @Html.DropDownListFor(model => model.PlaceOfResidenceId, Model.PlacesOfResidence, "Odaberite mjesto stanovanja", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PlaceOfResidenceId, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                @Html.LabelFor(model => model.PhoneNumber, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                <div class="col-md-8 col-sm-9">
+                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control",@placeholder = "06xxxxxxx" })
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @style = "color:red" })
+                                </div>
+
+                            </div>
+                               <div class="form-group">
+                                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-4 col-sm-3" })
+
+                                   <div class="col-md-8 col-sm-9">
+                                       @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                       @Html.ValidationMessageFor(model => model.Email, "", new { @style = "color:red" })
+                                   </div>
+
+                            </div>
+
+                        </div>
+                        @Html.HiddenFor(model=>model.ApplicationPackageId)
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="btn-group  pull-right">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Dalje </button>                                   
+                                        <a href="@Url.Action("Index","Application")" class="btn btn-primary pull-right" style="background-color:#C9302C;border-color:#C9302C"><i class="fa fa-close" style="color:#fff;"></i> Odustani </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
