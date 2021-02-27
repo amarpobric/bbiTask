@@ -19,12 +19,12 @@ namespace TaskBBI.Controllers
         }
         public IActionResult Index()
         {
+            var appPackage = _db.ApplicationPackage.Count();
+            ViewBag.appPackage = appPackage;
             return View();
         }
         public IActionResult TestDB()
-        {
-            var appPackage = _db.ApplicationPackage.Count();
-            ViewBag.appPackage = appPackage;
+        {           
             DbInitializer.Execute(_db);
             return View(_db);
         }
